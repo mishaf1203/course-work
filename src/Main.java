@@ -4,6 +4,7 @@ public class Main {
         for (Employee employee : employees) {
             System.out.println(employee);
         }
+
     }
 
     public static int sum(Employee[] employee) {
