@@ -47,8 +47,13 @@ public class Main {
 
     public static void avgSalary(Employee[] employees) {
         int sum = sum(employees);
-        int avg = sum / employees.length;
+        float avg = (float)sum / employees.length;
         System.out.println("Средняя зп: "+ avg);
+    }
+    public static void AllStaff(Employee[] employees) {
+        for (Employee employee : employees) {
+            System.out.println(" Сотрудники:  "+ employee.getFullName());
+        }
     }
 
     public static void main(String[] args) {
@@ -68,6 +73,7 @@ public class Main {
         countMin(employee);
         countMax(employee);
         avgSalary(employee);
+        AllStaff(employee);
     }
 
 }
