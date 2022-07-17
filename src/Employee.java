@@ -36,7 +36,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getFullName()+" " +getSector()+" " +getSalary();
+        return "Ф.И.О: "+getFullName()+" dept: " +getSector()+" salary: " +getSalary()+ " id: "+ getId();
     }
 
     public void setSector(int sector) {

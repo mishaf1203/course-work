@@ -1,10 +1,11 @@
 public class Main {
 
-    public static void allEmployee(Employee[] employee) {
-        for (int i = 0; i < employee.length; i++) {
-            System.out.println(employee[i].toString());
+    public static void allEmployee(Employee[] employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee);
         }
-        System.out.println(" ");
+
+
     }
 
     public static int sum(Employee[] employee) {
@@ -15,19 +16,39 @@ public class Main {
             sum += employee[i].getSalary();
 
         }
-        System.out.println(sum);
+        System.out.println("Сумма зарплат "+sum);
         return sum;
     }
-    public static int countMin(Employee[] employees) {
+    public static void countMin(Employee[] employees) {
         if (employees.length > 0) {
-            Employee employee = employees[0];
+            Employee emp = employees[0];
             for (Employee employee : employees
             ) {
-                if (employee.getSalary() > employee.getSalary())
+                if (emp.getSalary() > employee.getSalary())
                 emp = employee;
             }
-        }
+            System.out.println("Мин. "+emp.getSalary()+" " + emp.getFullName()+" " + emp.getId());
+        }else
+            System.out.println("Массив пустой");
 
+    }
+    public static void countMax(Employee[] employees) {
+        if (employees.length > 0) {
+            Employee emp = employees[0];
+            for (Employee employee : employees
+            ) {
+                if (emp.getSalary() < employee.getSalary())
+                    emp = employee;
+            }
+            System.out.println("Макс. "+emp.getSalary()+" " + emp.getFullName()+" " + emp.getId());
+        }else
+            System.out.println("Массив пустой");
+    }
+
+    public static void avgSalary(Employee[] employees) {
+        int sum = sum(employees);
+        int avg = sum / employees.length;
+        System.out.println("Средняя зп: "+ avg);
     }
 
     public static void main(String[] args) {
@@ -44,6 +65,9 @@ public class Main {
         employee[9] = new Employee("Егоров Егор Егорович", 2, 3456354);
         allEmployee(employee);
         sum(employee);
+        countMin(employee);
+        countMax(employee);
+        avgSalary(employee);
     }
 
 }
