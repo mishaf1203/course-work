@@ -7,12 +7,17 @@ public class Main {
 
     }
 
-    public static int sum(Employee[] employee) {
+    public static int sumSalary(Employee[] employee) {
         int sum = 0;
         int salary = 0;
         for (int i = 0; i < employee.length; i++) {
-            salary = employee[i].getSalary();
-            sum += employee[i].getSalary();
+            if (employee[i] != null) {
+                salary = employee[i].getSalary();
+                sum += employee[i].getSalary();
+            } else {
+                System.out.println("В массиве не хватает "+ i+ " сотрудника ");
+            }
+
 
         }
         System.out.println("Сумма зарплат "+sum);
@@ -23,7 +28,7 @@ public class Main {
             Employee emp = employees[0];
             for (Employee employee : employees
             ) {
-                if (emp.getSalary() > employee.getSalary())
+                if (emp.getSalary() > employee.getSalary() && employee != null)
                 emp = employee;
             }
             System.out.println("Мин. "+emp.getSalary()+" " + emp.getFullName()+" " + emp.getId());
@@ -45,11 +50,11 @@ public class Main {
     }
 
     public static void avgSalary(Employee[] employees) {
-        int sum = sum(employees);
+        int sum = sumSalary(employees);
         float avg = (float)sum / employees.length;
         System.out.println("Средняя зп: "+ avg);
     }
-    public static void AllStaff(Employee[] employees) {
+    public static void allStaff(Employee[] employees) {
         for (Employee employee : employees) {
             System.out.println(" Сотрудники:  "+ employee.getFullName());
         }
@@ -68,11 +73,11 @@ public class Main {
         employee[8] = new Employee("Антонов Антон Антонович", 5, 65765);
         employee[9] = new Employee("Егоров Егор Егорович", 2, 3456354);
         allEmployee(employee);
-        sum(employee);
+        sumSalary(employee);
         countMin(employee);
         countMax(employee);
         avgSalary(employee);
-        AllStaff(employee);
+        allStaff(employee);
     }
 
 }
