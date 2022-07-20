@@ -41,7 +41,7 @@ public class Main {
             Employee emp = employees[0];
             for (Employee employee : employees
             ) {
-                if (emp.getSalary() < employee.getSalary())
+                if (emp.getSalary() < employee.getSalary() && employee != null)
                     emp = employee;
             }
             System.out.println("Макс. "+emp.getSalary()+" " + emp.getFullName()+" " + emp.getId());
@@ -56,7 +56,9 @@ public class Main {
     }
     public static void allStaff(Employee[] employees) {
         for (Employee employee : employees) {
-            System.out.println(" Сотрудники:  "+ employee.getFullName());
+            if(employee != null){
+                System.out.println(" Сотрудники:  "+ employee.getFullName());
+            }
         }
     }
 
